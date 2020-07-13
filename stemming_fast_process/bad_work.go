@@ -87,9 +87,9 @@ func stemminguniqueword(docc [][]string, doc [][]string) [][]string{
     docin:= doc
     length:= len(alldocin)
     for i:=0; i < length; i++{
-      for j:=i; j < len(docin); j++{
+      for j:=0; j < len(docin); j++{
         s:= comparison(alldocin[i][0], docin[j][0])
-        if(len(s) > 5){
+        if(len(s) > 7){
           docin[j][0] = s
         }
       }
@@ -100,11 +100,11 @@ func stemminguniqueword(docc [][]string, doc [][]string) [][]string{
 
 func main() {
     //maindata := readCsvFile("C:/Users/Zhastay/_Projects in Univer(Python jupyter)/Bigrams_kz_lang/Corpus/big_corpus_cleaned.csv")
-    uniquedata := readCsvFile("C:/Users/Zhastay/_Projects in Univer(Python jupyter)/Bigrams_kz_lang/Corpus/big_unique_cleaned_words.csv")
+    uniquedata := readCsvFile("C:/Users/Zhastay/_Projects in Univer(Python jupyter)/Bigrams_kz_lang/stemming_fast_process/all_words.csv")
     fmt.Println("go")
     //fmt.Println(stemmingkazakh(uniquedata, maindata[1][0]))
     uni:= stemminguniqueword(uniquedata, uniquedata)
     //ending := preproccessing(uniquedata, maindata)
     fmt.Println("end")
-    writeCsvFile("C:/Users/Zhastay/_Projects in Univer(Python jupyter)/Bigrams_kz_lang/stemming_fast_process/big_unique_stemmed.csv", uni)
+    writeCsvFile("C:/Users/Zhastay/_Projects in Univer(Python jupyter)/Bigrams_kz_lang/stemming_fast_process/all_unique_words_2.csv", uni)
 }
